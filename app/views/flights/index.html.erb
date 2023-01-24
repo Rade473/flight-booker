@@ -1,19 +1,4 @@
 
 <div class="container">
-<%= form_with url: "/flight", method: :get do |form| %>
-<div class="mb-3">
-  <%= form.label :departure_airport, "Depart from:", class:"form-label"%>
-  <%= form.collection_select :departure_airport, Airport.order(:code), :id, :code, class: "form-select"%>
-  </div>
-<div class="mb-3">
-  <%= form.label :departure_time, "Departure date:",class:"form-label"%>
-  <%= form.date_select :departure_time, class: "form-select" %>
-  </div>
-
-  <div class="mb-3">
-  <%= form.label :ticket_number, "Number of passengers:"%>
-  <%= form.number_field :ticket_number, in:1..20, step:1%>
-  </div>
-  <%= form.submit "Search", class: "btn btn-primary"%>
-<% end %>
+<%= render "form"%>
 </div>

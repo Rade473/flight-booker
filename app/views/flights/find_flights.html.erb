@@ -1,0 +1,11 @@
+
+<%= render "form"%>
+<%= form_with url: "/booking_new", method: :get do |form|%>
+<% @flights.each do |f|%>
+<%= render "flight", flight: f%>
+<%= form.radio_button :flight, f %>
+<% end%>
+<% unless @flights.empty?%>
+<%= form.submit 'Submit' %>
+<%end%>
+<%end%>

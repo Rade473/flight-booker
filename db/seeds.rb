@@ -15,6 +15,7 @@
   Airport.create(code: "PRS")
 
 Flight.create(arrival_airport:Airport.find_by(code:"NYC"), departure_airport: Airport.find_by(code:"MSC"), departure_time: DateTime.new(2023,1,19,5,0,0), flight_duration:(8*3600))
+Flight.create(arrival_airport:Airport.find_by(code:"NYC"), departure_airport: Airport.find_by(code:"MSC"), departure_time: DateTime.new(2023,1,19,14,0,0), flight_duration:(8*3600))
 Flight.create(arrival_airport:Airport.find_by(code:"LND"), departure_airport: Airport.find_by(code:"MSC"), departure_time: DateTime.new(2023,1,19,14,0,0), flight_duration:(1*3600))
 Flight.create(arrival_airport:Airport.find_by(code:"MSC"), departure_airport: Airport.find_by(code:"MDR"), departure_time: DateTime.new(2023,1,19,19,30,0), flight_duration:(3*3600))
 Flight.create(arrival_airport:Airport.find_by(code:"MDR"), departure_airport: Airport.find_by(code:"PRS"), departure_time: DateTime.new(2023,1,20,7,15,0), flight_duration:(1*3600))
