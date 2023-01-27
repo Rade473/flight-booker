@@ -1,0 +1,18 @@
+<br>
+  <%= form_with model:@booking, method: :post do |form|%>
+  <%= form.hidden_field :flight_id, value: params[:flight].to_i%>
+  <%= form.hidden_field :ticket_number, value: @ticket_number%>
+<br>
+
+<h4> Please enter information for each of the passengers</h4>
+<%= form.fields_for :passenger do |passengers_form|%>
+<%= passengers_form.label :name%>
+<%= passengers_form.text_field :name%>
+
+<%= passengers_form.label :email%>
+<%= passengers_form.email_field :email%> <br><br>
+
+<%end%>
+
+  <%= form.submit 'Submit' %>
+ <%end%>

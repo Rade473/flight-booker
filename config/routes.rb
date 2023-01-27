@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   get '/flight', to: 'flights#find_flights'
 
-  get '/booking_new', to: 'bookings#new'
+  resources :bookings, only: [:new, :create, :show]
+
 end

@@ -1,1 +1,8 @@
-Hello there
+<div class="container">
+Flight from <%= @selected_flight.departure_airport.code  %> <br>
+Flying to <%= @selected_flight.arrival_airport.code%> <br>
+Departure: <%= @selected_flight.departure_time%> <br>
+Arriving: <%= @selected_flight.departure_time + @selected_flight.flight_duration%>
+<br>
+  <%= render "new_booking_form" %>
+</div>

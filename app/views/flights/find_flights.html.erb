@@ -1,11 +1,15 @@
 
 <%= render "form"%>
-<%= form_with url: "/booking_new", method: :get do |form|%>
+<% if @flights.empty?%>
+There are no availale flights
+<%else%>
+<%= form_with url: 'bookings/new', method: :get do |form|%>
 <% @flights.each do |f|%>
+<% @flight = f%>
 <%= render "flight", flight: f%>
-<%= form.radio_button :flight, f %>
+<%= form.radio_button :flight, f.id %>
+<%= form.hidden_field :ticket_number, value: @ticket_number %>
 <% end%>
-<% unless @flights.empty?%>
 <%= form.submit 'Submit' %>
 <%end%>
 <%end%>

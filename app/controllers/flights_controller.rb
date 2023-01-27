@@ -7,10 +7,8 @@ class FlightsController < ApplicationController
     month = params["departure_time(2i)"].to_i
     day = params["departure_time(3i)"].to_i
     @departure_day = DateTime.new(year, month, day)
-      # Flight.where(
-      #   'departure_airport_id' => params[:departure_airport]
-
-      # )
+    @ticket_number = params["ticket_number"]
+ 
     Flight.where("departure_airport_id = ? AND arrival_airport_id = ?", params[:departure_airport], params[:arrival_airport]).where('departure_time' => @departure_day.beginning_of_day..@departure_day.end_of_day).each do |f|
       @flights << f
     end
