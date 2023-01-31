@@ -1,0 +1,22 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+ <br>
+<div class="container">
+<h5>Flight</h5>
+ Departing from: <%= @booking.flight.departure_airport.code%> <br>
+ Arriving to: <%= @booking.flight.arrival_airport.code%> <br>
+ Departure: <%= @booking.flight.departure_time%> <br>
+ Arriving: <%= @booking.flight.departure_time + @booking.flight.flight_duration%> <br><br>
+ <h5>Passengers:</h5>
+ <div class="container">
+ <% @passengers.each do |passenger|%>
+ <br>
+ Name: <%= passenger.name%> <br>
+ Email :<%= passenger.email%> <br>
+ <%end%>
+ </div>
+</div>

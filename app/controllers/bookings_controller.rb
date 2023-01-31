@@ -12,8 +12,8 @@ class BookingsController < ApplicationController
     @selected_flight = Flight.find(params[:booking][:flight_id])
 
       if @booking.save!
-       flash[:notice] = 'Booking successfully saved'
-      redirect_to root
+
+      redirect_to @booking, notice: "You have successfully booked your flight"
       else
 
       end
@@ -21,6 +21,11 @@ class BookingsController < ApplicationController
 
     def show
       @booking = Booking.find(params[:id])
+      @passengers =[]
+      
+      Passenger.where("booking_id = ?", params[:id]).each do |p|
+        @passengers << p
+      end
     end
 
 
