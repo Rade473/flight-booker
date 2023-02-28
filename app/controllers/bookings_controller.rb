@@ -12,6 +12,15 @@ class BookingsController < ApplicationController
     @selected_flight = Flight.find(params[:booking][:flight_id])
 
       if @booking.save!
+      @passengers =[]
+      
+      Passenger.where("booking_id = ?", @booking.id).each do |p|
+        @passengers << p
+      end
+        @passengers.each do |passenger|
+          @passenger = passenger
+      PassengerMailer.with(booking: @booking, passenger: @passenger).booking_email.deliver_later
+        end
 
       redirect_to @booking, notice: "You have successfully booked your flight"
       else

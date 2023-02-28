@@ -1,0 +1,12 @@
+Thank you for your booking, <%= @passenger.name %>
+===============================================
+
+You have successfully booked a flight,
+      You have successfully booked a flight,
+      Departing from: <%= @booking.flight.departure_airport.code %>
+      Arriving to: <%= @booking.flight.arrival_airport.code %>
+      Departure: <%= @booking.flight.departure_time %>
+      Arriving: <%= @booking.flight.departure_time + @booking.flight.flight_duration%>
+
+
+Thanks for joining and have a great day!
